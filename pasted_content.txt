@@ -1,0 +1,23 @@
+Create a comprehensive GitHub repository that packages a fully functional static website for an actively operational e-commerce shop specializing exclusively in varieties of fashionable African outfits for men (e.g., Agbada, Dashiki, Buba, embroidered kaftans, and modern fusions with vibrant Ankara prints and traditional motifs). The UI must be exceptionally attractive, modern, responsive, and enterprise-grade: use high-quality hero images of models in dynamic poses, smooth animations (e.g., parallax scrolling, hover effects on product cards), a grid-based product catalog with filters (by size, price, style), cart functionality via localStorage/JavaScript, checkout simulation with form validation, testimonials slider, newsletter signup, and SEO-optimized elements like meta tags and schema markup—all built purely with HTML5, CSS3 (Tailwind or Bootstrap), vanilla JavaScript or lightweight libraries like Alpine.js (no backend frameworks). Source or generate original mock product data with 20+ items, high-res images, prices in USD/NGN, and African cultural aesthetics (bold colors, geometric patterns).
+
+For AWS deployment, make it an advanced enterprise production setup using Infrastructure as Code (IaC) with Terraform (preferred for multi-tool compatibility) or AWS CDK. Include all necessary services/parameters for scalability, security, performance, and monitoring:
+
+Core Hosting: Private S3 bucket (versioning, server-side encryption with KMS, lifecycle policies) configured as origin (not public website mode).
+
+CDN & Edge: CloudFront distribution with OAC/OAI, HTTPS-only (ACM wildcard certificate), custom error pages (404/403 SPA handling), Lambda@Edge for geo-routing or caching optimization, WAF for DDoS/SQLi protection.
+
+DNS: Route 53 hosted zone with A record alias to CloudFront, health checks, failover routing.
+
+Security/Compliance: IAM roles with least privilege, CloudTrail logging, GuardDuty integration, Config rules, Secrets Manager for any env vars.
+
+Monitoring/Observability: CloudWatch dashboards/alarms (latency, error rates, cache hit ratio), X-Ray tracing, access logs to another S3 bucket.
+
+CI/CD: GitHub Actions workflow for automated build/sync/invalidation on push (using OIDC for AWS auth), with linting/security scans (e.g., tfsec).
+
+Additional Enterprise Features: Custom domain support (params for domain input), multi-region failover, edge compute for A/B testing, integration hooks for future headless CMS (e.g., mock API endpoints).
+
+Provide terraform.tfvars.example, modules for reusability, and Makefile or scripts for init/plan/apply/destroy.
+
+Structure the repo professionally: /website/ (static assets), /infra/ (Terraform/CDK code), /docs/ (detailed README with badges, architecture diagram via Mermaid), /screenshots/ (high-res annotated screenshots of every AWS console step: e.g., creating S3 bucket → enabling versioning → CloudFront origins/behaviors → ACM cert request → Route53 records → WAF rules → CloudWatch dashboard → deployment via GitHub Actions), /deployment-guide.md (pictorial Markdown with sequential images/text for manual AWS console navigation as fallback, e.g., Step 1: S3 creation [screenshot1.png], Step 2: Bucket policy [screenshot2.png]).
+
+Include a live demo link (e.g., via Vercel/Netlify preview), production checklist (SLAs, costs estimates via AWS Calculator links), and open issues for enhancements. Ensure zero-cost starter tier compatibility, HIPAA/GDPR-like configs optional via vars, and license as MIT. Make the repo forkable/star-worthy with polished branding ("AfricanKingsEshop - Enterprise AWS Static E-Com").

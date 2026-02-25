@@ -1,0 +1,51 @@
+# ============================================================================
+# AfricanKingsEshop Terraform Configuration Example
+# 
+# Copy this file to terraform.tfvars and fill in your values
+# ============================================================================
+
+# AWS Configuration
+aws_region  = "us-east-1"
+environment = "prod"
+
+# S3 Configuration
+# Must be globally unique and lowercase
+s3_bucket_name = "africankingseshop-website-prod-12345"
+
+# Domain Configuration
+domain_name      = "africankingseshop.com"
+route53_zone_name = "africankingseshop.com"
+
+# Additional domains for SSL certificate (optional)
+additional_domains = [
+  "www.africankingseshop.com"
+]
+
+# GitHub Configuration for CI/CD
+# Format: owner/repository
+github_repo = "yourusername/AfricanKingsEshop"
+
+# WAF Configuration
+waf_rate_limit = 2000  # Requests per 5 minutes
+
+# CloudWatch Configuration
+cloudwatch_log_retention_days = 30
+
+# S3 Lifecycle Configuration
+s3_noncurrent_version_expiration_days = 90
+
+# Cache Configuration
+cache_ttl_static   = 31536000  # 1 year for static assets
+cache_ttl_default  = 3600      # 1 hour for default content
+
+# Security Features
+enable_guardduty  = true
+enable_cloudtrail = true
+
+# Additional Tags
+tags = {
+  Project     = "AfricanKingsEshop"
+  Team        = "Engineering"
+  CostCenter  = "Marketing"
+  Environment = "Production"
+}
